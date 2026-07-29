@@ -25,7 +25,16 @@ export function DisputeTableHeader({ sortBy, sortOrder, onSort }: DisputeTableHe
     <TableHead>
       <TableRow>
         <TableCell sx={headerCellSx}>CASE</TableCell>
-        <TableCell sx={headerCellSx}>GUEST / PROPERTY</TableCell>
+        <TableCell sx={headerCellSx}>
+          <TableSortLabel
+            active={sortBy === 'guest'}
+            direction={sortBy === 'guest' ? sortOrder : 'asc'}
+            onClick={() => onSort('guest')}
+            sx={sortLabelSx}
+          >
+            GUEST / PROPERTY
+          </TableSortLabel>
+        </TableCell>
         <TableCell sx={headerCellSx}>
           <TableSortLabel
             active={sortBy === 'amount'}
@@ -46,9 +55,36 @@ export function DisputeTableHeader({ sortBy, sortOrder, onSort }: DisputeTableHe
             TX DATE
           </TableSortLabel>
         </TableCell>
-        <TableCell sx={headerCellSx}>METHOD</TableCell>
-        <TableCell sx={headerCellSx}>REASON</TableCell>
-        <TableCell sx={headerCellSx}>STATUS</TableCell>
+        <TableCell sx={headerCellSx}>
+          <TableSortLabel
+            active={sortBy === 'method'}
+            direction={sortBy === 'method' ? sortOrder : 'asc'}
+            onClick={() => onSort('method')}
+            sx={sortLabelSx}
+          >
+            METHOD
+          </TableSortLabel>
+        </TableCell>
+        <TableCell sx={headerCellSx}>
+          <TableSortLabel
+            active={sortBy === 'reason'}
+            direction={sortBy === 'reason' ? sortOrder : 'asc'}
+            onClick={() => onSort('reason')}
+            sx={sortLabelSx}
+          >
+            REASON
+          </TableSortLabel>
+        </TableCell>
+        <TableCell sx={headerCellSx}>
+          <TableSortLabel
+            active={sortBy === 'status'}
+            direction={sortBy === 'status' ? sortOrder : 'asc'}
+            onClick={() => onSort('status')}
+            sx={sortLabelSx}
+          >
+            STATUS
+          </TableSortLabel>
+        </TableCell>
         <TableCell sx={headerCellSx}>
           <TableSortLabel
             active={sortBy === 'deadline'}

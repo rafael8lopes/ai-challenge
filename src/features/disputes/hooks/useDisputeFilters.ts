@@ -37,10 +37,6 @@ export function useDisputeFilters() {
     setFilters((prev) => ({ ...prev, status }))
   }
 
-  function resetFilters() {
-    setFilters(defaultFilters)
-  }
-
   return {
     filters,
     setSearch,
@@ -49,6 +45,5 @@ export function useDisputeFilters() {
     setUrgency,
     setReasonCategory,
     setStatus,
-    resetFilters,
   }
 }

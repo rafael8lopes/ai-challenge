@@ -2,6 +2,7 @@ import { Box, Typography, Stack } from '@mui/material'
 import CheckIcon from '@mui/icons-material/Check'
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh'
 import type { ReasonCodeInfo } from '@/features/disputes/utils/reasonCodes'
+import { sectionLabelSx } from '@/features/disputes/utils/detailStyles'
 
 interface AnalystGuidanceCardProps {
   reason: ReasonCodeInfo
@@ -12,7 +13,7 @@ export function AnalystGuidanceCard({ reason }: AnalystGuidanceCardProps) {
     <Box component="section" aria-label="Analyst guidance">
       <Typography
         variant="caption"
-        sx={{ color: 'text.secondary', fontWeight: 700, letterSpacing: 0.8, display: 'block', mb: 1 }}
+        sx={{ ...sectionLabelSx, display: 'block', mb: 1 }}
       >
         ANALYST GUIDANCE · {reason.code}
       </Typography>
@@ -23,7 +24,7 @@ export function AnalystGuidanceCard({ reason }: AnalystGuidanceCardProps) {
 
       <Typography
         variant="caption"
-        sx={{ color: 'text.secondary', fontWeight: 700, letterSpacing: 0.6, display: 'block', mb: 1 }}
+        sx={{ ...sectionLabelSx, letterSpacing: 0.6, display: 'block', mb: 1 }}
       >
         KEY EVIDENCE TO GATHER
       </Typography>
@@ -40,7 +41,7 @@ export function AnalystGuidanceCard({ reason }: AnalystGuidanceCardProps) {
 
       <Typography
         variant="caption"
-        sx={{ color: 'text.secondary', fontWeight: 700, letterSpacing: 0.6, display: 'block', mb: 1 }}
+        sx={{ ...sectionLabelSx, letterSpacing: 0.6, display: 'block', mb: 1 }}
       >
         WATCH OUT FOR
       </Typography>

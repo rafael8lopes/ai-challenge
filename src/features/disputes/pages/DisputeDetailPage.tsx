@@ -41,6 +41,7 @@ import { CaseStrengthCard } from '@/features/disputes/components/detail/CaseStre
 import { EvidenceChecklistCard } from '@/features/disputes/components/detail/EvidenceChecklistCard'
 import { RiskSignalsCard } from '@/features/disputes/components/detail/RiskSignalsCard'
 import { AnalystGuidanceCard } from '@/features/disputes/components/detail/AnalystGuidanceCard'
+import { sectionLabelSx } from '@/features/disputes/utils/detailStyles'
 
 export function DisputeDetailPage() {
   const { disputeId } = useParams<{ disputeId: string }>()
@@ -189,7 +190,7 @@ export function DisputeDetailPage() {
                     <Box sx={{ bgcolor: 'action.hover', borderRadius: 1, p: 2, height: '100%' }}>
                       <Typography
                         variant="caption"
-                        sx={{ color: 'text.secondary', fontWeight: 700, letterSpacing: 0.6, display: 'block', mb: 1 }}
+                        sx={{ ...sectionLabelSx, letterSpacing: 0.6, display: 'block', mb: 1 }}
                       >
                         WHAT THIS MEANS
                       </Typography>
@@ -304,7 +305,7 @@ export function DisputeDetailPage() {
                 <Grid size={{ xs: 12, sm: 6 }}>
                   <Typography
                     variant="caption"
-                    sx={{ color: 'text.secondary', fontWeight: 700, letterSpacing: 0.6, display: 'block', mb: 1.5 }}
+                    sx={{ ...sectionLabelSx, letterSpacing: 0.6, display: 'block', mb: 1.5 }}
                   >
                     HOST CONTACT
                   </Typography>

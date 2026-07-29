@@ -2,6 +2,7 @@ import { Box, Typography, Stack } from '@mui/material'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import WarningAmberIcon from '@mui/icons-material/WarningAmber'
 import type { ChecklistItem } from '@/features/disputes/utils/caseAssessment'
+import { sectionLabelSx } from '@/features/disputes/utils/detailStyles'
 
 interface EvidenceChecklistCardProps {
   items: ChecklistItem[]
@@ -13,7 +14,7 @@ export function EvidenceChecklistCard({ items, earned, total }: EvidenceChecklis
   return (
     <Box component="section" aria-label="Evidence checklist">
       <Box sx={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', mb: 1.5 }}>
-        <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 700, letterSpacing: 0.8 }}>
+        <Typography variant="caption" sx={sectionLabelSx}>
           EVIDENCE CHECKLIST
         </Typography>
         <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600 }}>

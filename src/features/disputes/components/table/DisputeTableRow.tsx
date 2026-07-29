@@ -111,11 +111,11 @@ export function DisputeTableRow({ dispute }: DisputeTableRowProps) {
       <TableCell>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
           {daysRemaining <= 5 && (
-            <WarningAmberIcon sx={{ fontSize: 14, color: deadlineColor }} />
+            <>
+              <WarningAmberIcon sx={{ fontSize: 14, color: deadlineColor }} />
+              <AccessTimeIcon sx={{ fontSize: 14, color: deadlineColor }} />
+            </>
           )}
-          {daysRemaining <= 5 ? (
-            <AccessTimeIcon sx={{ fontSize: 14, color: deadlineColor }} />
-          ) : null}
           <Typography variant="body2" sx={{ fontWeight: 600, color: deadlineColor, whiteSpace: 'nowrap' }}>
             {daysRemaining <= 0 ? 'Overdue' : `${daysRemaining}d left`}
           </Typography>

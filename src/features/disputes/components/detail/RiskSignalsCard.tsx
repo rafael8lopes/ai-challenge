@@ -2,6 +2,7 @@ import { Box, Typography, Stack } from '@mui/material'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline'
 import type { RiskSignal } from '@/features/disputes/utils/caseAssessment'
+import { sectionLabelSx } from '@/features/disputes/utils/detailStyles'
 
 interface RiskSignalsCardProps {
   signals: RiskSignal[]
@@ -12,7 +13,7 @@ export function RiskSignalsCard({ signals }: RiskSignalsCardProps) {
     <Box component="section" aria-label="Risk signals">
       <Typography
         variant="caption"
-        sx={{ color: 'text.secondary', fontWeight: 700, letterSpacing: 0.8, display: 'block', mb: 1.5 }}
+        sx={{ ...sectionLabelSx, display: 'block', mb: 1.5 }}
       >
         RISK SIGNALS
       </Typography>

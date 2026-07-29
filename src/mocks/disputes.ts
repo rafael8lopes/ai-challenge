@@ -3,7 +3,6 @@ import type { Dispute } from '@/features/disputes/types'
 export const disputes: Dispute[] = [
   {
     id: 'DSP-001',
-    transactionId: 'TXN-78432',
     amount: 2450.00,
     currency: 'USD',
     reasonCode: '10.4',
@@ -15,17 +14,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Visa ****4532',
     processor: 'EBANX',
     customer: {
-      id: 'CUS-201',
       name: 'Carlos Mendez',
       email: 'carlos.mendez@email.com',
       country: 'Mexico',
       accountCreatedAt: '2025-03-15',
-      totalBookings: 5,
       completedBookings: 4,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-9012',
       propertyName: 'Villa Paraíso',
       propertyLocation: 'Cancún, Mexico',
       checkIn: '2026-07-06',
@@ -37,15 +33,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Moderate — full refund 5 days before check-in'
     },
     transaction: {
-      id: 'TXN-78432',
       date: '2026-07-05T14:23:00Z',
-      amount: 2450.00,
-      currency: 'USD',
       paymentMethod: 'Visa ****4532',
       processor: 'EBANX',
       authorizationCode: 'AUTH-89234',
       ipAddress: '189.203.45.12',
-      deviceFingerprint: 'dfp_8a3b2c1d',
       country: 'Mexico',
       avsMatch: true,
       cvvMatch: true
@@ -58,16 +50,15 @@ export const disputes: Dispute[] = [
       { id: 'TL-005', timestamp: '2026-07-20T09:15:00Z', type: 'dispute_filed', title: 'Dispute Filed', description: 'Cardholder claims unauthorized transaction (10.4)' }
     ],
     evidenceSignals: [
-      { id: 'ES-001', type: 'ip_match', label: 'IP matches customer profile country', available: true, value: 'Mexico (189.203.45.12)', strength: 'strong' },
-      { id: 'ES-002', type: 'device_fingerprint', label: 'Known device fingerprint', available: true, value: 'Device used in 3 prior bookings', strength: 'strong' },
-      { id: 'ES-003', type: 'avs_match', label: 'AVS verification passed', available: true, value: 'Full match', strength: 'strong' },
-      { id: 'ES-004', type: 'delivery_confirmation', label: 'Check-in confirmed', available: true, value: 'Smart lock access 2026-07-06', strength: 'strong' },
-      { id: 'ES-005', type: 'prior_transactions', label: 'Prior successful bookings', available: true, value: '4 completed without dispute', strength: 'strong' }
+      { id: 'ES-001', label: 'IP matches customer profile country', value: 'Mexico (189.203.45.12)', strength: 'strong' },
+      { id: 'ES-002', label: 'Known device fingerprint', value: 'Device used in 3 prior bookings', strength: 'strong' },
+      { id: 'ES-003', label: 'AVS verification passed', value: 'Full match', strength: 'strong' },
+      { id: 'ES-004', label: 'Check-in confirmed', value: 'Smart lock access 2026-07-06', strength: 'strong' },
+      { id: 'ES-005', label: 'Prior successful bookings', value: '4 completed without dispute', strength: 'strong' }
     ]
   },
   {
     id: 'DSP-002',
-    transactionId: 'TXN-65210',
     amount: 890.00,
     currency: 'USD',
     reasonCode: '13.1',
@@ -79,17 +70,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Mastercard ****8876',
     processor: 'dLocal',
     customer: {
-      id: 'CUS-342',
       name: 'James Wilson',
       email: 'j.wilson@outlook.com',
       country: 'United States',
       accountCreatedAt: '2026-06-25',
-      totalBookings: 1,
       completedBookings: 0,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-7834',
       propertyName: 'Beachfront Studio',
       propertyLocation: 'Playa del Carmen, Mexico',
       checkIn: '2026-07-01',
@@ -101,15 +89,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Strict — 50% refund up to 1 week before'
     },
     transaction: {
-      id: 'TXN-65210',
       date: '2026-06-28T09:45:00Z',
-      amount: 890.00,
-      currency: 'USD',
       paymentMethod: 'Mastercard ****8876',
       processor: 'dLocal',
       authorizationCode: 'AUTH-55123',
       ipAddress: '72.134.90.201',
-      deviceFingerprint: 'dfp_new_device',
       country: 'United States',
       avsMatch: true,
       cvvMatch: true
@@ -122,16 +106,15 @@ export const disputes: Dispute[] = [
       { id: 'TL-010', timestamp: '2026-07-18T16:20:00Z', type: 'dispute_filed', title: 'Dispute Filed', description: 'Customer claims services not as described (13.1)' }
     ],
     evidenceSignals: [
-      { id: 'ES-006', type: 'check_in_confirmation', label: 'Check-in confirmed', available: true, value: 'Host confirmed 2026-07-01', strength: 'moderate' },
-      { id: 'ES-007', type: 'guest_communication', label: 'Post-stay communication', available: false, strength: 'missing' },
-      { id: 'ES-008', type: 'cancellation_policy', label: 'Cancellation policy accepted', available: true, value: 'Accepted at booking', strength: 'moderate' },
-      { id: 'ES-009', type: 'property_photos', label: 'Property condition photos', available: false, strength: 'missing' },
-      { id: 'ES-010', type: 'prior_transactions', label: 'Prior successful bookings', available: false, value: 'New customer, no history', strength: 'weak' }
+      { id: 'ES-006', label: 'Check-in confirmed', value: 'Host confirmed 2026-07-01', strength: 'moderate' },
+      { id: 'ES-007', label: 'Post-stay communication', strength: 'missing' },
+      { id: 'ES-008', label: 'Cancellation policy accepted', value: 'Accepted at booking', strength: 'moderate' },
+      { id: 'ES-009', label: 'Property condition photos', strength: 'missing' },
+      { id: 'ES-010', label: 'Prior successful bookings', value: 'New customer, no history', strength: 'weak' }
     ]
   },
   {
     id: 'DSP-003',
-    transactionId: 'TXN-91045',
     amount: 3200.00,
     currency: 'BRL',
     reasonCode: '10.5',
@@ -143,17 +126,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Visa ****2211',
     processor: 'EBANX',
     customer: {
-      id: 'CUS-189',
       name: 'Ana Paula Silva',
       email: 'ana.silva@gmail.com',
       country: 'Brazil',
       accountCreatedAt: '2024-11-02',
-      totalBookings: 8,
       completedBookings: 8,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-4521',
       propertyName: 'Copacabana Penthouse',
       propertyLocation: 'Rio de Janeiro, Brazil',
       checkIn: '2026-07-11',
@@ -165,15 +145,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Flexible — full refund 24h before check-in'
     },
     transaction: {
-      id: 'TXN-91045',
       date: '2026-07-10T11:30:00Z',
-      amount: 3200.00,
-      currency: 'BRL',
       paymentMethod: 'Visa ****2211',
       processor: 'EBANX',
       authorizationCode: 'AUTH-77890',
       ipAddress: '177.42.88.15',
-      deviceFingerprint: 'dfp_5e4d3c2b',
       country: 'Brazil',
       avsMatch: true,
       cvvMatch: true
@@ -186,16 +162,15 @@ export const disputes: Dispute[] = [
       { id: 'TL-015', timestamp: '2026-07-22T08:45:00Z', type: 'dispute_filed', title: 'Dispute Filed', description: 'Cardholder claims counterfeit transaction (10.5)' }
     ],
     evidenceSignals: [
-      { id: 'ES-011', type: 'ip_match', label: 'IP matches customer country', available: true, value: 'Brazil (177.42.88.15)', strength: 'strong' },
-      { id: 'ES-012', type: 'device_fingerprint', label: 'Known device', available: true, value: 'Used in 6 prior bookings', strength: 'strong' },
-      { id: 'ES-013', type: 'delivery_confirmation', label: 'Check-in confirmed', available: true, value: 'Concierge record', strength: 'strong' },
-      { id: 'ES-014', type: 'prior_transactions', label: 'Prior bookings', available: true, value: '8 completed, 0 disputes', strength: 'strong' },
-      { id: 'ES-015', type: 'cvv_match', label: 'CVV verified', available: true, value: 'Match', strength: 'strong' }
+      { id: 'ES-011', label: 'IP matches customer country', value: 'Brazil (177.42.88.15)', strength: 'strong' },
+      { id: 'ES-012', label: 'Known device', value: 'Used in 6 prior bookings', strength: 'strong' },
+      { id: 'ES-013', label: 'Check-in confirmed', value: 'Concierge record', strength: 'strong' },
+      { id: 'ES-014', label: 'Prior bookings', value: '8 completed, 0 disputes', strength: 'strong' },
+      { id: 'ES-015', label: 'CVV verified', value: 'Match', strength: 'strong' }
     ]
   },
   {
     id: 'DSP-004',
-    transactionId: 'TXN-34521',
     amount: 1750.00,
     currency: 'COP',
     reasonCode: '12.1',
@@ -207,17 +182,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Visa ****9901',
     processor: 'PaymentEz',
     customer: {
-      id: 'CUS-455',
       name: 'Diego Ramírez',
       email: 'diego.ramirez@hotmail.com',
       country: 'Colombia',
       accountCreatedAt: '2025-08-20',
-      totalBookings: 3,
       completedBookings: 3,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-6633',
       propertyName: 'El Peñón Apartment',
       propertyLocation: 'Cartagena, Colombia',
       checkIn: '2026-07-13',
@@ -229,15 +201,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Moderate — full refund 5 days before check-in'
     },
     transaction: {
-      id: 'TXN-34521',
       date: '2026-07-12T16:10:00Z',
-      amount: 1750.00,
-      currency: 'COP',
       paymentMethod: 'Visa ****9901',
       processor: 'PaymentEz',
       authorizationCode: 'AUTH-44321',
       ipAddress: '190.25.67.83',
-      deviceFingerprint: 'dfp_7f8e9d0a',
       country: 'Colombia',
       avsMatch: true,
       cvvMatch: true
@@ -251,14 +219,13 @@ export const disputes: Dispute[] = [
       { id: 'TL-021', timestamp: '2026-07-23T10:30:00Z', type: 'dispute_filed', title: 'Dispute Filed', description: 'Customer claims duplicate charge (12.1)' }
     ],
     evidenceSignals: [
-      { id: 'ES-016', type: 'transaction_log', label: 'Single charge confirmation', available: true, value: 'Only 1 settled charge, duplicate voided', strength: 'strong' },
-      { id: 'ES-017', type: 'void_record', label: 'Void/reversal record', available: true, value: 'Voided within 5 seconds', strength: 'strong' },
-      { id: 'ES-018', type: 'processor_statement', label: 'Processor confirmation', available: true, value: 'PaymentEz confirms single settlement', strength: 'strong' }
+      { id: 'ES-016', label: 'Single charge confirmation', value: 'Only 1 settled charge, duplicate voided', strength: 'strong' },
+      { id: 'ES-017', label: 'Void/reversal record', value: 'Voided within 5 seconds', strength: 'strong' },
+      { id: 'ES-018', label: 'Processor confirmation', value: 'PaymentEz confirms single settlement', strength: 'strong' }
     ]
   },
   {
     id: 'DSP-005',
-    transactionId: 'TXN-22890',
     amount: 580.00,
     currency: 'MXN',
     reasonCode: '13.3',
@@ -270,17 +237,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Amex ****3344',
     processor: 'dLocal',
     customer: {
-      id: 'CUS-567',
       name: 'Patricia Morales',
       email: 'patricia.m@yahoo.com',
       country: 'Mexico',
       accountCreatedAt: '2025-12-10',
-      totalBookings: 2,
       completedBookings: 2,
       priorDisputes: 1
     },
     booking: {
-      id: 'BKG-1122',
       propertyName: 'Jungle Retreat Cabin',
       propertyLocation: 'Tulum, Mexico',
       checkIn: '2026-07-02',
@@ -292,15 +256,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Strict — no refund within 7 days'
     },
     transaction: {
-      id: 'TXN-22890',
       date: '2026-07-01T08:15:00Z',
-      amount: 580.00,
-      currency: 'MXN',
       paymentMethod: 'Amex ****3344',
       processor: 'dLocal',
       authorizationCode: 'AUTH-33456',
       ipAddress: '187.190.12.55',
-      deviceFingerprint: 'dfp_2b3c4d5e',
       country: 'Mexico',
       avsMatch: true,
       cvvMatch: false
@@ -314,16 +274,15 @@ export const disputes: Dispute[] = [
       { id: 'TL-027', timestamp: '2026-07-25T14:00:00Z', type: 'dispute_filed', title: 'Dispute Filed', description: 'Customer claims property not as described (13.3)' }
     ],
     evidenceSignals: [
-      { id: 'ES-019', type: 'check_in_confirmation', label: 'Check-in confirmed', available: true, value: 'Lockbox accessed 2026-07-02', strength: 'moderate' },
-      { id: 'ES-020', type: 'guest_communication', label: 'Guest messages', available: true, value: 'Complaint about A/C and insects on day 2', strength: 'weak' },
-      { id: 'ES-021', type: 'property_photos', label: 'Property listing photos', available: true, value: '12 photos, includes A/C unit', strength: 'moderate' },
-      { id: 'ES-022', type: 'host_response', label: 'Host response to complaint', available: false, strength: 'missing' },
-      { id: 'ES-023', type: 'prior_disputes', label: 'Customer dispute history', available: true, value: '1 prior dispute (lost)', strength: 'weak' }
+      { id: 'ES-019', label: 'Check-in confirmed', value: 'Lockbox accessed 2026-07-02', strength: 'moderate' },
+      { id: 'ES-020', label: 'Guest messages', value: 'Complaint about A/C and insects on day 2', strength: 'weak' },
+      { id: 'ES-021', label: 'Property listing photos', value: '12 photos, includes A/C unit', strength: 'moderate' },
+      { id: 'ES-022', label: 'Host response to complaint', strength: 'missing' },
+      { id: 'ES-023', label: 'Customer dispute history', value: '1 prior dispute (lost)', strength: 'weak' }
     ]
   },
   {
     id: 'DSP-006',
-    transactionId: 'TXN-45678',
     amount: 3500.00,
     currency: 'USD',
     reasonCode: '11.3',
@@ -335,17 +294,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Mastercard ****5567',
     processor: 'EBANX',
     customer: {
-      id: 'CUS-678',
       name: 'Robert Chen',
       email: 'r.chen@gmail.com',
       country: 'United States',
       accountCreatedAt: '2026-07-07',
-      totalBookings: 1,
       completedBookings: 1,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-8899',
       propertyName: 'Oceanview Villa',
       propertyLocation: 'Punta Cana, Dominican Republic',
       checkIn: '2026-07-09',
@@ -357,15 +313,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Strict — 50% refund up to 1 week before'
     },
     transaction: {
-      id: 'TXN-45678',
       date: '2026-07-08T20:30:00Z',
-      amount: 3500.00,
-      currency: 'USD',
       paymentMethod: 'Mastercard ****5567',
       processor: 'EBANX',
       authorizationCode: 'AUTH-99001',
       ipAddress: '45.67.89.123',
-      deviceFingerprint: 'dfp_new_unknown',
       country: 'United States',
       avsMatch: false,
       cvvMatch: true
@@ -378,15 +330,14 @@ export const disputes: Dispute[] = [
       { id: 'TL-032', timestamp: '2026-07-21T11:00:00Z', type: 'dispute_filed', title: 'Dispute Filed', description: 'Issuer claims no authorization obtained (11.3)' }
     ],
     evidenceSignals: [
-      { id: 'ES-024', type: 'auth_code', label: 'Authorization code present', available: true, value: 'AUTH-99001', strength: 'strong' },
-      { id: 'ES-025', type: 'avs_match', label: 'AVS verification', available: true, value: 'Mismatch — billing address differs', strength: 'weak' },
-      { id: 'ES-026', type: 'delivery_confirmation', label: 'Check-in confirmed', available: true, value: 'Property manager confirmed', strength: 'strong' },
-      { id: 'ES-027', type: 'prior_transactions', label: 'Customer history', available: false, value: 'New account, no history', strength: 'missing' }
+      { id: 'ES-024', label: 'Authorization code present', value: 'AUTH-99001', strength: 'strong' },
+      { id: 'ES-025', label: 'AVS verification', value: 'Mismatch — billing address differs', strength: 'weak' },
+      { id: 'ES-026', label: 'Check-in confirmed', value: 'Property manager confirmed', strength: 'strong' },
+      { id: 'ES-027', label: 'Customer history', value: 'New account, no history', strength: 'missing' }
     ]
   },
   {
     id: 'DSP-007',
-    transactionId: 'TXN-11223',
     amount: 1200.00,
     currency: 'USD',
     reasonCode: '13.2',
@@ -398,17 +349,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Visa ****7788',
     processor: 'dLocal',
     customer: {
-      id: 'CUS-890',
       name: 'Sarah Thompson',
       email: 's.thompson@icloud.com',
       country: 'Canada',
       accountCreatedAt: '2025-01-20',
-      totalBookings: 6,
       completedBookings: 5,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-3344',
       propertyName: 'Colonial Suite',
       propertyLocation: 'Havana, Cuba',
       checkIn: '2026-06-20',
@@ -420,15 +368,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Flexible — full refund 24h before check-in'
     },
     transaction: {
-      id: 'TXN-11223',
       date: '2026-06-15T12:00:00Z',
-      amount: 1200.00,
-      currency: 'USD',
       paymentMethod: 'Visa ****7788',
       processor: 'dLocal',
       authorizationCode: 'AUTH-22334',
       ipAddress: '99.234.55.12',
-      deviceFingerprint: 'dfp_a1b2c3d4',
       country: 'Canada',
       avsMatch: true,
       cvvMatch: true
@@ -442,14 +386,13 @@ export const disputes: Dispute[] = [
       { id: 'TL-038', timestamp: '2026-07-26T16:00:00Z', type: 'evidence_submitted', title: 'Evidence Submitted', description: 'Cancellation policy and refund records submitted' }
     ],
     evidenceSignals: [
-      { id: 'ES-028', type: 'cancellation_policy', label: 'Policy acceptance', available: true, value: 'Flexible policy accepted at booking', strength: 'strong' },
-      { id: 'ES-029', type: 'guest_communication', label: 'Cancellation communication', available: true, value: 'Guest initiated cancellation via platform', strength: 'strong' },
-      { id: 'ES-030', type: 'refund_record', label: 'Partial refund issued', available: true, value: 'Refund of $600 processed 2026-06-19', strength: 'strong' }
+      { id: 'ES-028', label: 'Policy acceptance', value: 'Flexible policy accepted at booking', strength: 'strong' },
+      { id: 'ES-029', label: 'Cancellation communication', value: 'Guest initiated cancellation via platform', strength: 'strong' },
+      { id: 'ES-030', label: 'Partial refund issued', value: 'Refund of $600 processed 2026-06-19', strength: 'strong' }
     ]
   },
   {
     id: 'DSP-008',
-    transactionId: 'TXN-99887',
     amount: 450.00,
     currency: 'MXN',
     reasonCode: '10.4',
@@ -461,17 +404,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Visa ****1122',
     processor: 'PaymentEz',
     customer: {
-      id: 'CUS-111',
       name: 'Unknown Cardholder',
       email: 'temp_8923@protonmail.com',
       country: 'Unknown',
       accountCreatedAt: '2026-07-01',
-      totalBookings: 1,
       completedBookings: 0,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-5500',
       propertyName: 'Downtown Loft',
       propertyLocation: 'Mexico City, Mexico',
       checkIn: '2026-07-03',
@@ -483,15 +423,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Moderate — full refund 5 days before check-in'
     },
     transaction: {
-      id: 'TXN-99887',
       date: '2026-07-02T03:15:00Z',
-      amount: 450.00,
-      currency: 'MXN',
       paymentMethod: 'Visa ****1122',
       processor: 'PaymentEz',
       authorizationCode: 'AUTH-66789',
       ipAddress: '45.227.190.44',
-      deviceFingerprint: 'dfp_unknown_vpn',
       country: 'Panama',
       avsMatch: false,
       cvvMatch: false
@@ -503,16 +439,15 @@ export const disputes: Dispute[] = [
       { id: 'TL-042', timestamp: '2026-07-16T07:30:00Z', type: 'dispute_filed', title: 'Dispute Filed', description: 'Cardholder claims unauthorized (10.4)' }
     ],
     evidenceSignals: [
-      { id: 'ES-031', type: 'ip_match', label: 'IP country mismatch', available: true, value: 'Panama IP, Mexico card', strength: 'weak' },
-      { id: 'ES-032', type: 'device_fingerprint', label: 'Unknown device (VPN)', available: true, value: 'VPN detected', strength: 'weak' },
-      { id: 'ES-033', type: 'avs_match', label: 'AVS failed', available: true, value: 'No match', strength: 'weak' },
-      { id: 'ES-034', type: 'cvv_match', label: 'CVV failed', available: true, value: 'No match', strength: 'weak' },
-      { id: 'ES-035', type: 'delivery_confirmation', label: 'No check-in', available: false, value: 'Guest never arrived', strength: 'missing' }
+      { id: 'ES-031', label: 'IP country mismatch', value: 'Panama IP, Mexico card', strength: 'weak' },
+      { id: 'ES-032', label: 'Unknown device (VPN)', value: 'VPN detected', strength: 'weak' },
+      { id: 'ES-033', label: 'AVS failed', value: 'No match', strength: 'weak' },
+      { id: 'ES-034', label: 'CVV failed', value: 'No match', strength: 'weak' },
+      { id: 'ES-035', label: 'No check-in', value: 'Guest never arrived', strength: 'missing' }
     ]
   },
   {
     id: 'DSP-009',
-    transactionId: 'TXN-55443',
     amount: 980.00,
     currency: 'USD',
     reasonCode: '12.2',
@@ -524,17 +459,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Mastercard ****4455',
     processor: 'EBANX',
     customer: {
-      id: 'CUS-234',
       name: 'Laura Fernández',
       email: 'laura.f@gmail.com',
       country: 'Argentina',
       accountCreatedAt: '2025-05-14',
-      totalBookings: 4,
       completedBookings: 4,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-2211',
       propertyName: 'Mountain Lodge',
       propertyLocation: 'Bariloche, Argentina',
       checkIn: '2026-07-06',
@@ -546,15 +478,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Moderate — full refund 5 days before check-in'
     },
     transaction: {
-      id: 'TXN-55443',
       date: '2026-07-05T17:20:00Z',
-      amount: 980.00,
-      currency: 'USD',
       paymentMethod: 'Mastercard ****4455',
       processor: 'EBANX',
       authorizationCode: 'AUTH-11234',
       ipAddress: '181.46.33.90',
-      deviceFingerprint: 'dfp_3a4b5c6d',
       country: 'Argentina',
       avsMatch: true,
       cvvMatch: true
@@ -567,14 +495,13 @@ export const disputes: Dispute[] = [
       { id: 'TL-047', timestamp: '2026-07-24T09:00:00Z', type: 'dispute_filed', title: 'Dispute Filed', description: 'Customer claims incorrect amount charged (12.2)' }
     ],
     evidenceSignals: [
-      { id: 'ES-036', type: 'transaction_log', label: 'Correct amount record', available: true, value: '$980 matches booking total', strength: 'strong' },
-      { id: 'ES-037', type: 'booking_confirmation', label: 'Booking confirmation email', available: true, value: 'Sent with $980 total shown', strength: 'strong' },
-      { id: 'ES-038', type: 'price_breakdown', label: 'Itemized pricing', available: true, value: '4 nights × $220 + $100 cleaning fee', strength: 'strong' }
+      { id: 'ES-036', label: 'Correct amount record', value: '$980 matches booking total', strength: 'strong' },
+      { id: 'ES-037', label: 'Booking confirmation email', value: 'Sent with $980 total shown', strength: 'strong' },
+      { id: 'ES-038', label: 'Itemized pricing', value: '4 nights × $220 + $100 cleaning fee', strength: 'strong' }
     ]
   },
   {
     id: 'DSP-010',
-    transactionId: 'TXN-77665',
     amount: 1850.00,
     currency: 'BRL',
     reasonCode: '13.1',
@@ -586,17 +513,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Mastercard ****6677',
     processor: 'EBANX',
     customer: {
-      id: 'CUS-345',
       name: 'Ricardo Santos',
       email: 'ricardo.santos@outlook.com',
       country: 'Brazil',
       accountCreatedAt: '2026-01-05',
-      totalBookings: 2,
       completedBookings: 1,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-7766',
       propertyName: 'Ilha Grande Beach House',
       propertyLocation: 'Ilha Grande, Brazil',
       checkIn: '2026-07-12',
@@ -608,15 +532,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Strict — no refund within 7 days'
     },
     transaction: {
-      id: 'TXN-77665',
       date: '2026-07-10T14:45:00Z',
-      amount: 1850.00,
-      currency: 'BRL',
       paymentMethod: 'Mastercard ****6677',
       processor: 'EBANX',
       authorizationCode: 'AUTH-88543',
       ipAddress: '177.71.22.98',
-      deviceFingerprint: 'dfp_9e8d7c6b',
       country: 'Brazil',
       avsMatch: true,
       cvvMatch: true
@@ -630,15 +550,14 @@ export const disputes: Dispute[] = [
       { id: 'TL-053', timestamp: '2026-07-26T08:00:00Z', type: 'dispute_filed', title: 'Dispute Filed', description: 'Customer claims services not received (13.1)' }
     ],
     evidenceSignals: [
-      { id: 'ES-039', type: 'check_in_confirmation', label: 'Check-in confirmation', available: false, value: 'Guest never accessed property', strength: 'missing' },
-      { id: 'ES-040', type: 'guest_communication', label: 'Communication record', available: true, value: 'Guest reported access issue same day', strength: 'weak' },
-      { id: 'ES-041', type: 'cancellation_policy', label: 'Strict policy accepted', available: true, value: 'Accepted at booking time', strength: 'moderate' },
-      { id: 'ES-042', type: 'force_majeure', label: 'Weather/ferry records', available: false, strength: 'missing' }
+      { id: 'ES-039', label: 'Check-in confirmation', value: 'Guest never accessed property', strength: 'missing' },
+      { id: 'ES-040', label: 'Communication record', value: 'Guest reported access issue same day', strength: 'weak' },
+      { id: 'ES-041', label: 'Strict policy accepted', value: 'Accepted at booking time', strength: 'moderate' },
+      { id: 'ES-042', label: 'Weather/ferry records', strength: 'missing' }
     ]
   },
   {
     id: 'DSP-011',
-    transactionId: 'TXN-33221',
     amount: 2100.00,
     currency: 'USD',
     reasonCode: '10.4',
@@ -650,17 +569,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Visa ****3399',
     processor: 'dLocal',
     customer: {
-      id: 'CUS-456',
       name: 'Michael Brown',
       email: 'mbrown@email.com',
       country: 'United States',
       accountCreatedAt: '2024-06-10',
-      totalBookings: 12,
       completedBookings: 12,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-9988',
       propertyName: 'Sunset Terrace',
       propertyLocation: 'San Juan, Puerto Rico',
       checkIn: '2026-07-02',
@@ -672,15 +588,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Flexible — full refund 24h before check-in'
     },
     transaction: {
-      id: 'TXN-33221',
       date: '2026-07-01T15:30:00Z',
-      amount: 2100.00,
-      currency: 'USD',
       paymentMethod: 'Visa ****3399',
       processor: 'dLocal',
       authorizationCode: 'AUTH-77654',
       ipAddress: '72.45.123.88',
-      deviceFingerprint: 'dfp_known_mb',
       country: 'United States',
       avsMatch: true,
       cvvMatch: true
@@ -694,16 +606,15 @@ export const disputes: Dispute[] = [
       { id: 'TL-059', timestamp: '2026-07-28T09:00:00Z', type: 'evidence_submitted', title: 'Evidence Submitted', description: 'Full evidence package with check-in records and prior history' }
     ],
     evidenceSignals: [
-      { id: 'ES-043', type: 'ip_match', label: 'IP matches profile', available: true, value: 'US IP, US card', strength: 'strong' },
-      { id: 'ES-044', type: 'device_fingerprint', label: 'Known device', available: true, value: 'Used in 10 prior bookings', strength: 'strong' },
-      { id: 'ES-045', type: 'delivery_confirmation', label: 'Check-in confirmed', available: true, value: 'Digital key access log', strength: 'strong' },
-      { id: 'ES-046', type: 'prior_transactions', label: 'Extensive history', available: true, value: '12 bookings, 0 disputes', strength: 'strong' },
-      { id: 'ES-047', type: 'avs_match', label: 'AVS verified', available: true, value: 'Full match', strength: 'strong' }
+      { id: 'ES-043', label: 'IP matches profile', value: 'US IP, US card', strength: 'strong' },
+      { id: 'ES-044', label: 'Known device', value: 'Used in 10 prior bookings', strength: 'strong' },
+      { id: 'ES-045', label: 'Check-in confirmed', value: 'Digital key access log', strength: 'strong' },
+      { id: 'ES-046', label: 'Extensive history', value: '12 bookings, 0 disputes', strength: 'strong' },
+      { id: 'ES-047', label: 'AVS verified', value: 'Full match', strength: 'strong' }
     ]
   },
   {
     id: 'DSP-012',
-    transactionId: 'TXN-88776',
     amount: 320.00,
     currency: 'COP',
     reasonCode: '11.1',
@@ -715,17 +626,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Visa ****8800',
     processor: 'PaymentEz',
     customer: {
-      id: 'CUS-789',
       name: 'Valentina Ospina',
       email: 'val.ospina@gmail.com',
       country: 'Colombia',
       accountCreatedAt: '2025-09-30',
-      totalBookings: 3,
       completedBookings: 3,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-4455',
       propertyName: 'Coffee Country Finca',
       propertyLocation: 'Salento, Colombia',
       checkIn: '2026-07-15',
@@ -737,15 +645,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Flexible — full refund 24h before check-in'
     },
     transaction: {
-      id: 'TXN-88776',
       date: '2026-07-14T10:00:00Z',
-      amount: 320.00,
-      currency: 'COP',
       paymentMethod: 'Visa ****8800',
       processor: 'PaymentEz',
       authorizationCode: 'AUTH-55678',
       ipAddress: '190.25.110.45',
-      deviceFingerprint: 'dfp_val_known',
       country: 'Colombia',
       avsMatch: true,
       cvvMatch: true
@@ -758,14 +662,13 @@ export const disputes: Dispute[] = [
       { id: 'TL-064', timestamp: '2026-07-25T13:00:00Z', type: 'dispute_filed', title: 'Dispute Filed', description: 'Card recovery bulletin — issuer flagged card (11.1)' }
     ],
     evidenceSignals: [
-      { id: 'ES-048', type: 'auth_code', label: 'Valid authorization', available: true, value: 'AUTH-55678 approved', strength: 'strong' },
-      { id: 'ES-049', type: 'delivery_confirmation', label: 'Service delivered', available: true, value: 'Check-in confirmed by host', strength: 'strong' },
-      { id: 'ES-050', type: 'prior_transactions', label: 'Customer history', available: true, value: '3 prior bookings, no issues', strength: 'strong' }
+      { id: 'ES-048', label: 'Valid authorization', value: 'AUTH-55678 approved', strength: 'strong' },
+      { id: 'ES-049', label: 'Service delivered', value: 'Check-in confirmed by host', strength: 'strong' },
+      { id: 'ES-050', label: 'Customer history', value: '3 prior bookings, no issues', strength: 'strong' }
     ]
   },
   {
     id: 'DSP-013',
-    transactionId: 'TXN-44332',
     amount: 1100.00,
     currency: 'USD',
     reasonCode: '13.1',
@@ -777,17 +680,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Visa ****2244',
     processor: 'dLocal',
     customer: {
-      id: 'CUS-912',
       name: 'Emily Johnson',
       email: 'emily.j@gmail.com',
       country: 'United States',
       accountCreatedAt: '2025-11-01',
-      totalBookings: 2,
       completedBookings: 1,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-1199',
       propertyName: 'Historic Center Apartment',
       propertyLocation: 'Bogotá, Colombia',
       checkIn: '2026-06-28',
@@ -799,15 +699,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Moderate — full refund 5 days before check-in'
     },
     transaction: {
-      id: 'TXN-44332',
       date: '2026-06-25T11:00:00Z',
-      amount: 1100.00,
-      currency: 'USD',
       paymentMethod: 'Visa ****2244',
       processor: 'dLocal',
       authorizationCode: 'AUTH-99876',
       ipAddress: '68.45.90.123',
-      deviceFingerprint: 'dfp_emily_1',
       country: 'United States',
       avsMatch: true,
       cvvMatch: true
@@ -820,15 +716,14 @@ export const disputes: Dispute[] = [
       { id: 'TL-069', timestamp: '2026-07-17T14:30:00Z', type: 'dispute_filed', title: 'Dispute Filed', description: 'Customer claims services not received (13.1)' }
     ],
     evidenceSignals: [
-      { id: 'ES-051', type: 'check_in_confirmation', label: 'Check-in confirmed', available: true, value: 'Security desk record', strength: 'strong' },
-      { id: 'ES-052', type: 'guest_communication', label: 'Stay communication', available: true, value: 'Guest messaged host about restaurant recommendations', strength: 'strong' },
-      { id: 'ES-053', type: 'check_out_confirmation', label: 'Check-out record', available: true, value: 'Key returned to security', strength: 'strong' },
-      { id: 'ES-054', type: 'property_photos', label: 'Post-stay photos', available: false, strength: 'missing' }
+      { id: 'ES-051', label: 'Check-in confirmed', value: 'Security desk record', strength: 'strong' },
+      { id: 'ES-052', label: 'Stay communication', value: 'Guest messaged host about restaurant recommendations', strength: 'strong' },
+      { id: 'ES-053', label: 'Check-out record', value: 'Key returned to security', strength: 'strong' },
+      { id: 'ES-054', label: 'Post-stay photos', strength: 'missing' }
     ]
   },
   {
     id: 'DSP-014',
-    transactionId: 'TXN-66554',
     amount: 750.00,
     currency: 'BRL',
     reasonCode: '10.4',
@@ -840,17 +735,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Mastercard ****9911',
     processor: 'EBANX',
     customer: {
-      id: 'CUS-001',
       name: 'Pedro Almeida',
       email: 'pedro.almeida@email.com.br',
       country: 'Brazil',
       accountCreatedAt: '2026-07-14',
-      totalBookings: 1,
       completedBookings: 0,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-8877',
       propertyName: 'São Paulo Studio',
       propertyLocation: 'São Paulo, Brazil',
       checkIn: '2026-07-16',
@@ -862,15 +754,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Flexible — full refund 24h before check-in'
     },
     transaction: {
-      id: 'TXN-66554',
       date: '2026-07-15T22:45:00Z',
-      amount: 750.00,
-      currency: 'BRL',
       paymentMethod: 'Mastercard ****9911',
       processor: 'EBANX',
       authorizationCode: 'AUTH-33210',
       ipAddress: '45.170.88.200',
-      deviceFingerprint: 'dfp_suspicious_1',
       country: 'Venezuela',
       avsMatch: false,
       cvvMatch: true
@@ -882,16 +770,15 @@ export const disputes: Dispute[] = [
       { id: 'TL-073', timestamp: '2026-07-27T07:00:00Z', type: 'dispute_filed', title: 'Dispute Filed', description: 'Cardholder claims unauthorized (10.4)' }
     ],
     evidenceSignals: [
-      { id: 'ES-055', type: 'ip_match', label: 'IP country mismatch', available: true, value: 'Venezuela IP, Brazil card', strength: 'weak' },
-      { id: 'ES-056', type: 'device_fingerprint', label: 'Suspicious device', available: true, value: 'Never seen before', strength: 'weak' },
-      { id: 'ES-057', type: 'avs_match', label: 'AVS mismatch', available: true, value: 'Address does not match', strength: 'weak' },
-      { id: 'ES-058', type: 'delivery_confirmation', label: 'No delivery', available: false, value: 'No check-in recorded', strength: 'missing' },
-      { id: 'ES-059', type: 'account_age', label: 'New account', available: true, value: 'Created 1 day before booking', strength: 'weak' }
+      { id: 'ES-055', label: 'IP country mismatch', value: 'Venezuela IP, Brazil card', strength: 'weak' },
+      { id: 'ES-056', label: 'Suspicious device', value: 'Never seen before', strength: 'weak' },
+      { id: 'ES-057', label: 'AVS mismatch', value: 'Address does not match', strength: 'weak' },
+      { id: 'ES-058', label: 'No delivery', value: 'No check-in recorded', strength: 'missing' },
+      { id: 'ES-059', label: 'New account', value: 'Created 1 day before booking', strength: 'weak' }
     ]
   },
   {
     id: 'DSP-015',
-    transactionId: 'TXN-12345',
     amount: 2800.00,
     currency: 'USD',
     reasonCode: '13.3',
@@ -903,17 +790,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Amex ****7766',
     processor: 'dLocal',
     customer: {
-      id: 'CUS-555',
       name: 'David Martinez',
       email: 'd.martinez@business.com',
       country: 'United States',
       accountCreatedAt: '2024-03-15',
-      totalBookings: 9,
       completedBookings: 9,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-6655',
       propertyName: 'Luxury Penthouse',
       propertyLocation: 'Panama City, Panama',
       checkIn: '2026-07-03',
@@ -925,15 +809,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Strict — 50% refund up to 1 week before'
     },
     transaction: {
-      id: 'TXN-12345',
       date: '2026-07-01T09:00:00Z',
-      amount: 2800.00,
-      currency: 'USD',
       paymentMethod: 'Amex ****7766',
       processor: 'dLocal',
       authorizationCode: 'AUTH-44556',
       ipAddress: '73.22.145.90',
-      deviceFingerprint: 'dfp_david_m',
       country: 'United States',
       avsMatch: true,
       cvvMatch: true
@@ -948,16 +828,15 @@ export const disputes: Dispute[] = [
       { id: 'TL-080', timestamp: '2026-07-23T10:00:00Z', type: 'dispute_filed', title: 'Dispute Filed', description: 'Customer claims property not as described (13.3)' }
     ],
     evidenceSignals: [
-      { id: 'ES-060', type: 'check_in_confirmation', label: 'Check-in confirmed', available: true, value: 'Concierge-assisted', strength: 'strong' },
-      { id: 'ES-061', type: 'guest_communication', label: 'Complaint & resolution', available: true, value: 'Host offered partial refund', strength: 'moderate' },
-      { id: 'ES-062', type: 'full_stay_completed', label: 'Guest completed full stay', available: true, value: '7 of 7 nights used', strength: 'strong' },
-      { id: 'ES-063', type: 'prior_transactions', label: 'Loyal customer', available: true, value: '9 prior bookings', strength: 'strong' },
-      { id: 'ES-064', type: 'partial_refund', label: 'Compensation offered', available: true, value: '1-night refund ($400)', strength: 'moderate' }
+      { id: 'ES-060', label: 'Check-in confirmed', value: 'Concierge-assisted', strength: 'strong' },
+      { id: 'ES-061', label: 'Complaint & resolution', value: 'Host offered partial refund', strength: 'moderate' },
+      { id: 'ES-062', label: 'Guest completed full stay', value: '7 of 7 nights used', strength: 'strong' },
+      { id: 'ES-063', label: 'Loyal customer', value: '9 prior bookings', strength: 'strong' },
+      { id: 'ES-064', label: 'Compensation offered', value: '1-night refund ($400)', strength: 'moderate' }
     ]
   },
   {
     id: 'DSP-016',
-    transactionId: 'TXN-24680',
     amount: 180.00,
     currency: 'MXN',
     reasonCode: '12.1',
@@ -969,17 +848,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Visa ****5500',
     processor: 'PaymentEz',
     customer: {
-      id: 'CUS-667',
       name: 'Gabriela Ruiz',
       email: 'gabi.ruiz@hotmail.com',
       country: 'Mexico',
       accountCreatedAt: '2025-06-15',
-      totalBookings: 4,
       completedBookings: 4,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-3322',
       propertyName: 'Centro Histórico Room',
       propertyLocation: 'Oaxaca, Mexico',
       checkIn: '2026-07-09',
@@ -991,15 +867,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Flexible — full refund 24h before check-in'
     },
     transaction: {
-      id: 'TXN-24680',
       date: '2026-07-08T19:30:00Z',
-      amount: 180.00,
-      currency: 'MXN',
       paymentMethod: 'Visa ****5500',
       processor: 'PaymentEz',
       authorizationCode: 'AUTH-12321',
       ipAddress: '187.152.44.67',
-      deviceFingerprint: 'dfp_gabi_phone',
       country: 'Mexico',
       avsMatch: true,
       cvvMatch: true
@@ -1014,14 +886,13 @@ export const disputes: Dispute[] = [
       { id: 'TL-087', timestamp: '2026-07-27T14:00:00Z', type: 'evidence_submitted', title: 'Evidence Submitted', description: 'Transaction logs and void record submitted' }
     ],
     evidenceSignals: [
-      { id: 'ES-065', type: 'transaction_log', label: 'Single settlement', available: true, value: 'One charge settled, one voided', strength: 'strong' },
-      { id: 'ES-066', type: 'void_record', label: 'Immediate void', available: true, value: 'Second charge voided in 2 seconds', strength: 'strong' },
-      { id: 'ES-067', type: 'processor_statement', label: 'PaymentEz confirmation', available: true, value: 'Confirms single net charge', strength: 'strong' }
+      { id: 'ES-065', label: 'Single settlement', value: 'One charge settled, one voided', strength: 'strong' },
+      { id: 'ES-066', label: 'Immediate void', value: 'Second charge voided in 2 seconds', strength: 'strong' },
+      { id: 'ES-067', label: 'PaymentEz confirmation', value: 'Confirms single net charge', strength: 'strong' }
     ]
   },
   {
     id: 'DSP-017',
-    transactionId: 'TXN-13579',
     amount: 1450.00,
     currency: 'USD',
     reasonCode: '10.4',
@@ -1033,17 +904,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Mastercard ****2233',
     processor: 'EBANX',
     customer: {
-      id: 'CUS-888',
       name: 'Thomas Anderson',
       email: 'thomas.a@protonmail.com',
       country: 'United Kingdom',
       accountCreatedAt: '2026-07-17',
-      totalBookings: 1,
       completedBookings: 1,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-5544',
       propertyName: 'Boutique Hotel Suite',
       propertyLocation: 'Medellín, Colombia',
       checkIn: '2026-07-19',
@@ -1055,15 +923,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Moderate — full refund 5 days before check-in'
     },
     transaction: {
-      id: 'TXN-13579',
       date: '2026-07-18T01:30:00Z',
-      amount: 1450.00,
-      currency: 'USD',
       paymentMethod: 'Mastercard ****2233',
       processor: 'EBANX',
       authorizationCode: 'AUTH-88990',
       ipAddress: '185.220.101.45',
-      deviceFingerprint: 'dfp_tor_exit',
       country: 'Germany',
       avsMatch: false,
       cvvMatch: true
@@ -1076,16 +940,15 @@ export const disputes: Dispute[] = [
       { id: 'TL-092', timestamp: '2026-07-28T06:00:00Z', type: 'dispute_filed', title: 'Dispute Filed', description: 'Cardholder claims unauthorized (10.4)' }
     ],
     evidenceSignals: [
-      { id: 'ES-068', type: 'ip_match', label: 'IP location suspicious', available: true, value: 'Germany (Tor exit node), UK card', strength: 'weak' },
-      { id: 'ES-069', type: 'device_fingerprint', label: 'Tor browser detected', available: true, value: 'Known Tor exit node IP', strength: 'weak' },
-      { id: 'ES-070', type: 'avs_match', label: 'AVS mismatch', available: true, value: 'Address mismatch', strength: 'weak' },
-      { id: 'ES-071', type: 'delivery_confirmation', label: 'Hotel check-in record', available: true, value: 'Reception confirmed guest', strength: 'moderate' },
-      { id: 'ES-072', type: 'prior_transactions', label: 'No history', available: false, value: 'Brand new account', strength: 'missing' }
+      { id: 'ES-068', label: 'IP location suspicious', value: 'Germany (Tor exit node), UK card', strength: 'weak' },
+      { id: 'ES-069', label: 'Tor browser detected', value: 'Known Tor exit node IP', strength: 'weak' },
+      { id: 'ES-070', label: 'AVS mismatch', value: 'Address mismatch', strength: 'weak' },
+      { id: 'ES-071', label: 'Hotel check-in record', value: 'Reception confirmed guest', strength: 'moderate' },
+      { id: 'ES-072', label: 'No history', value: 'Brand new account', strength: 'missing' }
     ]
   },
   {
     id: 'DSP-018',
-    transactionId: 'TXN-97531',
     amount: 620.00,
     currency: 'COP',
     reasonCode: '13.2',
@@ -1097,17 +960,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Visa ****4466',
     processor: 'PaymentEz',
     customer: {
-      id: 'CUS-321',
       name: 'Natalia Vargas',
       email: 'natalia.v@outlook.com',
       country: 'Colombia',
       accountCreatedAt: '2025-04-20',
-      totalBookings: 5,
       completedBookings: 4,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-7711',
       propertyName: 'Lakeside Cabin',
       propertyLocation: 'Guatapé, Colombia',
       checkIn: '2026-07-07',
@@ -1119,15 +979,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Moderate — full refund 5 days before check-in'
     },
     transaction: {
-      id: 'TXN-97531',
       date: '2026-07-05T13:20:00Z',
-      amount: 620.00,
-      currency: 'COP',
       paymentMethod: 'Visa ****4466',
       processor: 'PaymentEz',
       authorizationCode: 'AUTH-77123',
       ipAddress: '190.25.88.12',
-      deviceFingerprint: 'dfp_nat_mobile',
       country: 'Colombia',
       avsMatch: true,
       cvvMatch: true
@@ -1140,15 +996,14 @@ export const disputes: Dispute[] = [
       { id: 'TL-097', timestamp: '2026-07-28T11:00:00Z', type: 'dispute_filed', title: 'Dispute Filed', description: 'Customer claims cancelled recurring charge (13.2)' }
     ],
     evidenceSignals: [
-      { id: 'ES-073', type: 'cancellation_policy', label: 'Policy accepted', available: true, value: 'Moderate policy — cancelled within 5-day window', strength: 'strong' },
-      { id: 'ES-074', type: 'cancellation_record', label: 'Cancellation within policy', available: true, value: 'Cancelled 1 day before, no refund per policy', strength: 'strong' },
-      { id: 'ES-075', type: 'guest_communication', label: 'Guest acknowledged policy', available: true, value: 'Guest messaged requesting exception', strength: 'moderate' },
-      { id: 'ES-076', type: 'single_charge', label: 'Not recurring', available: true, value: 'One-time booking charge', strength: 'strong' }
+      { id: 'ES-073', label: 'Policy accepted', value: 'Moderate policy — cancelled within 5-day window', strength: 'strong' },
+      { id: 'ES-074', label: 'Cancellation within policy', value: 'Cancelled 1 day before, no refund per policy', strength: 'strong' },
+      { id: 'ES-075', label: 'Guest acknowledged policy', value: 'Guest messaged requesting exception', strength: 'moderate' },
+      { id: 'ES-076', label: 'Not recurring', value: 'One-time booking charge', strength: 'strong' }
     ]
   },
   {
     id: 'DSP-019',
-    transactionId: 'TXN-86420',
     amount: 95.00,
     currency: 'USD',
     reasonCode: '10.4',
@@ -1160,17 +1015,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Visa ****1199',
     processor: 'dLocal',
     customer: {
-      id: 'CUS-100',
       name: 'Jennifer Lee',
       email: 'jennifer.lee@gmail.com',
       country: 'United States',
       accountCreatedAt: '2023-08-01',
-      totalBookings: 15,
       completedBookings: 15,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-2233',
       propertyName: 'Budget Hostel Bed',
       propertyLocation: 'Lima, Peru',
       checkIn: '2026-07-11',
@@ -1182,15 +1034,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Flexible — full refund 24h before check-in'
     },
     transaction: {
-      id: 'TXN-86420',
       date: '2026-07-10T16:00:00Z',
-      amount: 95.00,
-      currency: 'USD',
       paymentMethod: 'Visa ****1199',
       processor: 'dLocal',
       authorizationCode: 'AUTH-55443',
       ipAddress: '73.88.12.45',
-      deviceFingerprint: 'dfp_jen_iphone',
       country: 'United States',
       avsMatch: true,
       cvvMatch: true
@@ -1204,15 +1052,14 @@ export const disputes: Dispute[] = [
       { id: 'TL-103', timestamp: '2026-07-29T10:00:00Z', type: 'evidence_submitted', title: 'Evidence Submitted', description: 'Comprehensive evidence with 15-booking history' }
     ],
     evidenceSignals: [
-      { id: 'ES-077', type: 'ip_match', label: 'IP matches profile', available: true, value: 'US IP, US card', strength: 'strong' },
-      { id: 'ES-078', type: 'device_fingerprint', label: 'Known device', available: true, value: 'Same iPhone used for 2+ years', strength: 'strong' },
-      { id: 'ES-079', type: 'prior_transactions', label: 'Extensive history', available: true, value: '15 bookings, 0 disputes, 3-year customer', strength: 'strong' },
-      { id: 'ES-080', type: 'delivery_confirmation', label: 'Hostel check-in', available: true, value: 'Reception record with ID verification', strength: 'strong' }
+      { id: 'ES-077', label: 'IP matches profile', value: 'US IP, US card', strength: 'strong' },
+      { id: 'ES-078', label: 'Known device', value: 'Same iPhone used for 2+ years', strength: 'strong' },
+      { id: 'ES-079', label: 'Extensive history', value: '15 bookings, 0 disputes, 3-year customer', strength: 'strong' },
+      { id: 'ES-080', label: 'Hostel check-in', value: 'Reception record with ID verification', strength: 'strong' }
     ]
   },
   {
     id: 'DSP-020',
-    transactionId: 'TXN-75319',
     amount: 1680.00,
     currency: 'MXN',
     reasonCode: '11.3',
@@ -1224,17 +1071,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Visa ****6688',
     processor: 'EBANX',
     customer: {
-      id: 'CUS-444',
       name: 'Alejandra Gutiérrez',
       email: 'alejandra.g@yahoo.com',
       country: 'Mexico',
       accountCreatedAt: '2025-07-01',
-      totalBookings: 3,
       completedBookings: 3,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-9900',
       propertyName: 'Riviera Maya Condo',
       propertyLocation: 'Playa del Carmen, Mexico',
       checkIn: '2026-07-16',
@@ -1246,15 +1090,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Moderate — full refund 5 days before check-in'
     },
     transaction: {
-      id: 'TXN-75319',
       date: '2026-07-15T10:00:00Z',
-      amount: 1680.00,
-      currency: 'MXN',
       paymentMethod: 'Visa ****6688',
       processor: 'EBANX',
       authorizationCode: 'AUTH-44332',
       ipAddress: '189.203.100.77',
-      deviceFingerprint: 'dfp_ale_tablet',
       country: 'Mexico',
       avsMatch: true,
       cvvMatch: true
@@ -1267,15 +1107,14 @@ export const disputes: Dispute[] = [
       { id: 'TL-108', timestamp: '2026-07-26T15:00:00Z', type: 'dispute_filed', title: 'Dispute Filed', description: 'Issuer claims no authorization (11.3)' }
     ],
     evidenceSignals: [
-      { id: 'ES-081', type: 'auth_code', label: 'Authorization present', available: true, value: 'AUTH-44332 approved by issuer', strength: 'strong' },
-      { id: 'ES-082', type: 'avs_match', label: 'AVS verified', available: true, value: 'Full match', strength: 'strong' },
-      { id: 'ES-083', type: 'cvv_match', label: 'CVV verified', available: true, value: 'Match', strength: 'strong' },
-      { id: 'ES-084', type: 'delivery_confirmation', label: 'Service delivered', available: true, value: 'Digital lock access confirmed', strength: 'strong' }
+      { id: 'ES-081', label: 'Authorization present', value: 'AUTH-44332 approved by issuer', strength: 'strong' },
+      { id: 'ES-082', label: 'AVS verified', value: 'Full match', strength: 'strong' },
+      { id: 'ES-083', label: 'CVV verified', value: 'Match', strength: 'strong' },
+      { id: 'ES-084', label: 'Service delivered', value: 'Digital lock access confirmed', strength: 'strong' }
     ]
   },
   {
     id: 'DSP-021',
-    transactionId: 'TXN-24681',
     amount: 520.00,
     currency: 'BRL',
     reasonCode: '13.1',
@@ -1287,17 +1126,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Mastercard ****3322',
     processor: 'EBANX',
     customer: {
-      id: 'CUS-777',
       name: 'Marcos Pereira',
       email: 'marcos.p@gmail.com',
       country: 'Brazil',
       accountCreatedAt: '2026-06-28',
-      totalBookings: 1,
       completedBookings: 0,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-1188',
       propertyName: 'Florianópolis Beach Flat',
       propertyLocation: 'Florianópolis, Brazil',
       checkIn: '2026-07-03',
@@ -1309,15 +1145,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Strict — no refund within 7 days'
     },
     transaction: {
-      id: 'TXN-24681',
       date: '2026-07-01T07:30:00Z',
-      amount: 520.00,
-      currency: 'BRL',
       paymentMethod: 'Mastercard ****3322',
       processor: 'EBANX',
       authorizationCode: 'AUTH-66554',
       ipAddress: '200.155.42.88',
-      deviceFingerprint: 'dfp_marcos_new',
       country: 'Brazil',
       avsMatch: true,
       cvvMatch: true
@@ -1331,15 +1163,14 @@ export const disputes: Dispute[] = [
       { id: 'TL-114', timestamp: '2026-07-19T08:00:00Z', type: 'dispute_filed', title: 'Dispute Filed', description: 'Customer claims service not provided (13.1)' }
     ],
     evidenceSignals: [
-      { id: 'ES-085', type: 'check_in_confirmation', label: 'Check-in not confirmed', available: false, value: 'Guest could not access property', strength: 'missing' },
-      { id: 'ES-086', type: 'guest_communication', label: 'Communication attempts', available: true, value: 'Guest tried to reach host multiple times', strength: 'weak' },
-      { id: 'ES-087', type: 'host_response', label: 'Host unresponsive', available: false, value: 'No response from host', strength: 'missing' },
-      { id: 'ES-088', type: 'platform_intervention', label: 'Platform relocated guest', available: true, value: 'Support team intervened', strength: 'weak' }
+      { id: 'ES-085', label: 'Check-in not confirmed', value: 'Guest could not access property', strength: 'missing' },
+      { id: 'ES-086', label: 'Communication attempts', value: 'Guest tried to reach host multiple times', strength: 'weak' },
+      { id: 'ES-087', label: 'Host unresponsive', value: 'No response from host', strength: 'missing' },
+      { id: 'ES-088', label: 'Platform relocated guest', value: 'Support team intervened', strength: 'weak' }
     ]
   },
   {
     id: 'DSP-022',
-    transactionId: 'TXN-11111',
     amount: 3100.00,
     currency: 'USD',
     reasonCode: '10.4',
@@ -1351,17 +1182,14 @@ export const disputes: Dispute[] = [
     paymentMethod: 'Visa ****7744',
     processor: 'dLocal',
     customer: {
-      id: 'CUS-999',
       name: 'Amanda Clark',
       email: 'amanda.c@email.com',
       country: 'United States',
       accountCreatedAt: '2024-12-01',
-      totalBookings: 7,
       completedBookings: 7,
       priorDisputes: 0
     },
     booking: {
-      id: 'BKG-4400',
       propertyName: 'Beachfront Villa',
       propertyLocation: 'Montego Bay, Jamaica',
       checkIn: '2026-07-15',
@@ -1373,15 +1201,11 @@ export const disputes: Dispute[] = [
       cancellationPolicy: 'Strict — 50% refund up to 1 week before'
     },
     transaction: {
-      id: 'TXN-11111',
       date: '2026-07-14T12:00:00Z',
-      amount: 3100.00,
-      currency: 'USD',
       paymentMethod: 'Visa ****7744',
       processor: 'dLocal',
       authorizationCode: 'AUTH-99112',
       ipAddress: '68.33.44.55',
-      deviceFingerprint: 'dfp_amanda_mac',
       country: 'United States',
       avsMatch: true,
       cvvMatch: true
@@ -1394,11 +1218,11 @@ export const disputes: Dispute[] = [
       { id: 'TL-119', timestamp: '2026-07-27T11:00:00Z', type: 'dispute_filed', title: 'Dispute Filed', description: 'Cardholder claims unauthorized (10.4)' }
     ],
     evidenceSignals: [
-      { id: 'ES-089', type: 'ip_match', label: 'IP matches profile', available: true, value: 'US IP, US card', strength: 'strong' },
-      { id: 'ES-090', type: 'device_fingerprint', label: 'Known device', available: true, value: 'MacBook used in 5 prior bookings', strength: 'strong' },
-      { id: 'ES-091', type: 'delivery_confirmation', label: 'Check-in confirmed', available: true, value: 'Airport transfer + villa keys', strength: 'strong' },
-      { id: 'ES-092', type: 'prior_transactions', label: 'Established customer', available: true, value: '7 bookings, 0 disputes', strength: 'strong' },
-      { id: 'ES-093', type: 'avs_match', label: 'AVS verified', available: true, value: 'Full match', strength: 'strong' }
+      { id: 'ES-089', label: 'IP matches profile', value: 'US IP, US card', strength: 'strong' },
+      { id: 'ES-090', label: 'Known device', value: 'MacBook used in 5 prior bookings', strength: 'strong' },
+      { id: 'ES-091', label: 'Check-in confirmed', value: 'Airport transfer + villa keys', strength: 'strong' },
+      { id: 'ES-092', label: 'Established customer', value: '7 bookings, 0 disputes', strength: 'strong' },
+      { id: 'ES-093', label: 'AVS verified', value: 'Full match', strength: 'strong' }
     ]
   }
 ]

@@ -7,18 +7,15 @@ export type Currency = 'USD' | 'MXN' | 'BRL' | 'COP'
 export type EvidenceStrength = 'strong' | 'moderate' | 'weak' | 'missing'
 
 export interface CustomerProfile {
-  id: string
   name: string
   email: string
   country: string
   accountCreatedAt: string
-  totalBookings: number
   completedBookings: number
   priorDisputes: number
 }
 
 export interface BookingDetails {
-  id: string
   propertyName: string
   propertyLocation: string
   checkIn: string
@@ -40,23 +37,17 @@ export interface TimelineEvent {
 
 export interface EvidenceSignal {
   id: string
-  type: string
   label: string
-  available: boolean
   value?: string
   strength: EvidenceStrength
 }
 
 export interface TransactionDetails {
-  id: string
   date: string
-  amount: number
-  currency: Currency
   paymentMethod: string
   processor: string
   authorizationCode: string
   ipAddress: string
-  deviceFingerprint: string
   country: string
   avsMatch: boolean
   cvvMatch: boolean
@@ -64,7 +55,6 @@ export interface TransactionDetails {
 
 export interface Dispute {
   id: string
-  transactionId: string
   amount: number
   currency: Currency
   reasonCode: string
@@ -89,6 +79,6 @@ export interface DisputeFilters {
   urgency?: UrgencyLevel
   reasonCategory?: DisputeReasonCategory
   status?: DisputeStatus
-  sortBy: 'deadline' | 'amount' | 'filedAt'
+  sortBy: 'deadline' | 'amount' | 'filedAt' | 'guest' | 'method' | 'reason' | 'status'
   sortOrder: 'asc' | 'desc'
 }

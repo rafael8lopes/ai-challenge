@@ -1,5 +1,6 @@
 import { Box, Typography, LinearProgress } from '@mui/material'
 import type { CaseStrength } from '@/features/disputes/utils/caseAssessment'
+import { sectionLabelSx } from '@/features/disputes/utils/detailStyles'
 
 interface CaseStrengthCardProps {
   strength: CaseStrength
@@ -10,7 +11,7 @@ export function CaseStrengthCard({ strength }: CaseStrengthCardProps) {
     <Box component="section" aria-label="Case strength">
       <Typography
         variant="caption"
-        sx={{ color: 'text.secondary', fontWeight: 700, letterSpacing: 0.8, display: 'block', mb: 1.5 }}
+        sx={{ ...sectionLabelSx, display: 'block', mb: 1.5 }}
       >
         CASE STRENGTH
       </Typography>

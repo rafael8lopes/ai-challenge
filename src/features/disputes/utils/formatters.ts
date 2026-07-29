@@ -1,5 +1,12 @@
 import type { Currency, Dispute, DisputeReasonCategory, DisputeStatus, UrgencyLevel } from '@/features/disputes/types'
 
+const USD_CONVERSION_RATES: Record<Currency, number> = {
+  USD: 1,
+  MXN: 0.058,
+  BRL: 0.19,
+  COP: 0.00025,
+}
+
 export function formatCurrency(amount: number, currency: Currency): string {
   const localeMap: Record<Currency, string> = {
     USD: 'en-US',
@@ -11,31 +18,19 @@ export function formatCurrency(amount: number, currency: Currency): string {
   return new Intl.NumberFormat(localeMap[currency], {
     style: 'currency',
     currency,
-    minimumFractionDigits: 0,
+    minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   }).format(amount)
 }
 
 export function formatUsdEquivalent(amount: number, currency: Currency): string | undefined {
   if (currency === 'USD') return undefined
-  const rates: Record<Currency, number> = {
-    USD: 1,
-    MXN: 0.058,
-    BRL: 0.19,
-    COP: 0.00025,
-  }
-  const usd = amount * rates[currency]
-  return `$${Math.round(usd).toLocaleString('en-US')}`
+  const usd = amount * USD_CONVERSION_RATES[currency]
+  return `$${usd.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
 }
 
 export function getTotalExposureUsd(amounts: { amount: number; currency: Currency }[]): number {
-  const rates: Record<Currency, number> = {
-    USD: 1,
-    MXN: 0.058,
-    BRL: 0.19,
-    COP: 0.00025,
-  }
-  return amounts.reduce((sum, { amount, currency }) => sum + amount * rates[currency], 0)
+  return amounts.reduce((sum, { amount, currency }) => sum + amount * USD_CONVERSION_RATES[currency], 0)
 }
 
 export function getDaysRemaining(deadline: string): number {

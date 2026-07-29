@@ -1,6 +1,12 @@
-import type { Dispute, DisputeFilters } from '@/features/disputes/types'
+import type { Dispute, DisputeFilters, DisputeStatus } from '@/features/disputes/types'
 import { disputes as mockDisputes } from '@/mocks/disputes'
 import { getDaysRemaining, getUrgencyLevel } from '@/features/disputes/utils/formatters'
+
+const statusOrder: Record<DisputeStatus, number> = {
+  new: 0,
+  'in-progress': 1,
+  submitted: 2,
+}
 
 function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms))
@@ -45,6 +51,18 @@ function applyFilters(disputes: Dispute[], filters: DisputeFilters): Dispute[] {
         break
       case 'filedAt':
         comparison = new Date(a.filedAt).getTime() - new Date(b.filedAt).getTime()
+        break
+      case 'guest':
+        comparison = a.customer.name.localeCompare(b.customer.name)
+        break
+      case 'method':
+        comparison = a.paymentMethod.localeCompare(b.paymentMethod)
+        break
+      case 'reason':
+        comparison = a.reasonCategory.localeCompare(b.reasonCategory)
+        break
+      case 'status':
+        comparison = statusOrder[a.status] - statusOrder[b.status]
         break
     }
 
