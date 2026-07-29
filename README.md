@@ -6,6 +6,14 @@ A dispute triage dashboard for **Coral Escapes**, a vacation rental marketplace 
 
 ---
 
+## Preview
+
+![Dispute triage list view](src/assets/dispute-table.png)
+
+### Demo
+
+https://github.com/<owner>/<repo>/raw/main/src/assets/screen-record.mov
+
 ## Features
 
 - **Triage list view** — every dispute at a glance with amount, reason, status, and a color-coded deadline urgency indicator.
