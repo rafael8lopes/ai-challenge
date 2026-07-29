@@ -12,7 +12,7 @@ A dispute triage dashboard for **Coral Escapes**, a vacation rental marketplace 
 
 ### Demo
 
-https://github.com/<owner>/<repo>/raw/main/src/assets/screen-record.mov
+https://github.com/rafael8lopes/ai-challenge/raw/main/src/assets/screen-record.mov
 
 ## Features
 
