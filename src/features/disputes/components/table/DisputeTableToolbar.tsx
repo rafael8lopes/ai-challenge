@@ -1,6 +1,5 @@
 import { Box, Typography, InputBase } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
-import ViewListIcon from '@mui/icons-material/ViewList'
 import type { Dispute } from '@/features/disputes/types'
 import { getTotalExposureUsd } from '@/features/disputes/utils/formatters'
 
@@ -23,7 +22,6 @@ export function DisputeTableToolbar({
 
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', px: 2, py: 1.5, gap: 2, borderBottom: '1px solid', borderColor: 'divider' }}>
-      <ViewListIcon sx={{ color: 'text.secondary', fontSize: 20 }} />
       <Box
         sx={{
           display: 'flex',

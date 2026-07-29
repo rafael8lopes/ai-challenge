@@ -12,7 +12,7 @@ function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-function applyFilters(disputes: Dispute[], filters: DisputeFilters): Dispute[] {
+export function applyFilters(disputes: Dispute[], filters: DisputeFilters): Dispute[] {
   let result = [...disputes]
 
   if (filters.search) {
