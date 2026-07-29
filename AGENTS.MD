@@ -4,7 +4,7 @@
 
 **Dispute Triage Dashboard** for Coral Escapes — a vacation rental marketplace processing $40M+/month across 12 countries in Latin America and the Caribbean. The dashboard helps fraud analysts quickly understand chargebacks, prioritize work, and gather evidence to win disputes.
 
-**Client**: Coral Escapes (via Yuno merchant success team)
+**Client**: Coral Escapes
 **Problem**: 23% dispute win rate (industry benchmark 45-55%), analysts spend 45 min/dispute gathering evidence across 5 systems, losing $180K/month to winnable chargebacks.
 **Goal**: Single dashboard — triage, understand, and gather evidence in under 5 minutes per dispute.
 

@@ -91,23 +91,29 @@ publicSalesService.getPublicSales()
 Never duplicate server or derived state.
 
 ## Styling
-- Use SCSS with BEM.
-- Use nested BEM syntax (`&__element`, `&--modifier`) over flat selectors.
-- Keep selectors shallow.
-- Do not style by HTML tags.
+- Use MUI as the styling foundation; drive all visuals through the shared theme in `app/theme`.
+- Prefer the `sx` prop for component-level styling. Reach for tokens (`palette`, `spacing`, `typography`) instead of hardcoded values where possible.
+- Use `styled()` from `@emotion/styled` (or `@mui/material/styles`) for reusable, complex, or frequently repeated style blocks.
+- Extract repeated `sx` objects into shared style constants (e.g. `utils/*Styles.ts`) rather than duplicating them across components.
+- Avoid inline `style={{}}` objects and avoid styling raw HTML tags.
+- Customize global look-and-feel in the theme, not per-component overrides.
 
-Example naming:
-- `sale-card`
-- `sale-card__title`
-- `sale-card--live`
+Example using `sx` with theme tokens:
+```tsx
+<Box sx={{ display: 'flex', gap: 2, p: 3, bgcolor: 'background.default' }}>
+  <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'error.main' }}>
+    Overdue
+  </Typography>
+</Box>
+```
 
-Use nested syntax:
-```scss
-.sale-card {
-  &__title {}
-  &__price {}
-  &--live {}
-}
+Example shared style constant:
+```ts
+export const headerCellSx = {
+  fontWeight: 700,
+  color: 'text.secondary',
+  letterSpacing: 0.8,
+} as const
 ```
 
 ## Component File Structure
@@ -116,7 +122,6 @@ Reusable component folder pattern:
 ```text
 VehicleCard/
   VehicleCard.tsx
-  VehicleCard.scss
   VehicleCard.test.tsx
 ```
 
