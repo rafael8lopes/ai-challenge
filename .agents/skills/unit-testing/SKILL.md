@@ -16,8 +16,8 @@ Use this skill when the user asks to add, improve, or review tests.
 Run commands:
 
 ```bash
-yarn test
-yarn test:coverage
+npm test
+npm test:coverage
 ```
 
 ## Testing Scope Rules
@@ -64,8 +64,8 @@ Avoid:
 1. Identify whether the request is pure logic or UI behavior.
 2. If logic is embedded in JSX, extract it first to a utility/hook and test that utility/hook.
 3. Add tests for happy path and critical edge cases.
-4. Run `yarn test` and fix failures.
-5. Run `yarn test:coverage` when asked for confidence/coverage.
+4. Run `npm test` and fix failures.
+5. Run `npm test:coverage` when asked for confidence/coverage.
 
 ## Quality Bar
 
