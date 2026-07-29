@@ -1,4 +1,4 @@
-import type { Currency, DisputeStatus, UrgencyLevel } from '@/features/disputes/types'
+import type { Currency, Dispute, DisputeReasonCategory, DisputeStatus, UrgencyLevel } from '@/features/disputes/types'
 
 export function formatCurrency(amount: number, currency: Currency): string {
   const localeMap: Record<Currency, string> = {
@@ -129,4 +129,24 @@ export function getCountryCode(country: string): string {
     'Unknown': '??',
   }
   return map[country] ?? country.substring(0, 2).toUpperCase()
+}
+
+export interface SidebarCounts {
+  urgency: Record<UrgencyLevel, number>
+  reason: Record<DisputeReasonCategory, number>
+  status: Record<DisputeStatus, number>
+}
+
+export function getSidebarCounts(disputes: Dispute[]): SidebarCounts {
+  const urgency: Record<UrgencyLevel, number> = { critical: 0, urgent: 0, moderate: 0, normal: 0 }
+  const reason: Record<DisputeReasonCategory, number> = { fraud: 0, service: 0, processing: 0, authorization: 0 }
+  const status: Record<DisputeStatus, number> = { 'new': 0, 'in-progress': 0, 'submitted': 0 }
+
+  for (const dispute of disputes) {
+    urgency[getUrgencyLevel(getDaysRemaining(dispute.responseDeadline))] += 1
+    reason[dispute.reasonCategory] += 1
+    status[dispute.status] += 1
+  }
+
+  return { urgency, reason, status }
 }
